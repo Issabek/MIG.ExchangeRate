@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MIG.ExchangeRate
+namespace MIG.Exchange
 {
     class MainClass
     {

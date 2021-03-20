@@ -45,7 +45,5 @@ namespace MIG.ExchangeRateData
         public string home_number { get; set; }
         public string name { get; set; }
         public string name_type { get; set; }
-
-        public DateTime CheckDate { get; set; }
     }
 }
