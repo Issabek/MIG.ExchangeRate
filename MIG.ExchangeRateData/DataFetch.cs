@@ -11,8 +11,7 @@ namespace MIG.ExchangeRateData
     {
         private static ILog log = LogManager.GetLogger("LOGGER");
 
-        public DataFetch() {
-        }
+        public DataFetch() {}
 
             public static List<Rate> GetRecentRate()
             {
@@ -52,7 +51,7 @@ namespace MIG.ExchangeRateData
                     return response;
                 }
 
-                catch (System.NullReferenceException nex)
+                catch (NullReferenceException nex)
                 {
                     log.Error(nex.Message);
                 }
@@ -67,11 +66,3 @@ namespace MIG.ExchangeRateData
         
     }
 }
-    
-    
-        
-    
-
-
-    
-

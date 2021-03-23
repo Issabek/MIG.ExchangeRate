@@ -45,5 +45,8 @@ namespace MIG.ExchangeRateData
         public string home_number { get; set; }
         public string name { get; set; }
         public string name_type { get; set; }
+        public int id { get; set; }
+        public int EntityID { get; set; }
+
     }
 }

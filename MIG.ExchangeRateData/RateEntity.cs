@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace MIG.ExchangeRateData
@@ -7,26 +8,19 @@ namespace MIG.ExchangeRateData
     {
         public Rate MinRate { get; set; }
         public Rate MaxRate { get; set; }
-        public Dictionary<DateTime,List<Rate>> RateRecord;
+        public DateTime CreateDate { get; } = DateTime.Now;
         public int Id { get; set; }
 
         public RateEntity()
         {
+            //RateRecord.Keys.ToList()[0] = DateTime.Now;
         }
-        public RateEntity(List<Rate> Rates,Rate minRate, Rate maxRate)
-        {
-            MaxRate = MaxRate;
-            MinRate = minRate;
-            RateRecord.Add(DateTime.Now,Rates);
-        }
-        public RateEntity(List<Rate> Rates) : this(Rates, null, null)
-        {
-            RateRecord.Add(DateTime.Now, Rates);
 
-        }
-        public RateEntity( Dictionary<DateTime,List<Rate>> Rates)
+        public RateEntity(Rate minRate, Rate maxRate)
         {
-            this.RateRecord = Rates;
+            MaxRate = maxRate;
+            MinRate = minRate;
         }
+
     }
 }

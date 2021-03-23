@@ -1,5 +1,6 @@
 ﻿using System;
 using MIG.ExchangeRateData;
+
 using System.Collections.Generic;
 namespace MIG.ExchangeUI
 {
@@ -7,9 +8,9 @@ namespace MIG.ExchangeUI
     {
         static void Main(string[] args)
         {
+            RateService newDisplay = new RateService(@"myNewDb3.db");
+            newDisplay.DisplayCurrent();
 
-            var myList =DataFetch.GetRecentRate();
-            Console.WriteLine("444">"333");
         }
     }
 }
