@@ -166,13 +166,13 @@ namespace MIG.RateDataService
             Rate maxRate = null;
             bool temp1 = false;
             bool temp2 = false;
+            Console.WriteLine("Enter time in minutes to wat until next reload:");
+            int sleepTime = int.Parse(Console.ReadLine())*60000;
             if (LastEntity != null)
             {
                 Console.WriteLine("Курсы валют на {0}", DateTime.Now.ToString(System.Globalization.CultureInfo.CreateSpecificCulture("fr-FR")));
                 showMinMax(LastEntity);
             }
-            Console.WriteLine("Enter time in minutes to wat until next reload:");
-            int sleepTime = int.Parse(Console.ReadLine())*60000;
             while (true)
             {
                 Thread.Sleep(sleepTime);
