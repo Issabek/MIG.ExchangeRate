@@ -1,14 +1,14 @@
 ﻿using System;
-using MIG.ExchangeRateData;
+using MIG.RateDataService;
 
 using System.Collections.Generic;
-namespace MIG.ExchangeUI
+namespace MIG.Display
 {
     class Program
     {
         static void Main(string[] args)
         {
-            RateService newDisplay = new RateService(@"myNewDb3.db");
+            RateService newDisplay = new RateService(@"myNewDb6.db");
             newDisplay.DisplayCurrent();
 
         }

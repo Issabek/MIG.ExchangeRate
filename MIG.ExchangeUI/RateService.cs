@@ -5,7 +5,7 @@ using Tengri.DAL;
 using System.Linq;
 using System.Threading;
 
-namespace MIG.ExchangeUI
+namespace MIG.RateDataService
 {
     public class RateService
     {
@@ -149,6 +149,7 @@ namespace MIG.ExchangeUI
                 GetMinMax(out minRate, out maxRate,RateHistory);
                 rateEntity.MinRate = minRate;
                 rateEntity.MaxRate = maxRate;
+                AllEntities = db.getCollection<RateEntity>();
                 db.UpdateRecord<RateEntity>(rateEntity, out tempStr);
             }
             return true;
@@ -159,16 +160,31 @@ namespace MIG.ExchangeUI
 
         public void DisplayCurrent()
         {
+            RateEntity rateEntity = new RateEntity();
+            List<Rate> rates = DataFetch.GetRecentRate();
+            Rate minRate = null;
+            Rate maxRate = null;
+            bool temp1 = false;
+            bool temp2 = false;
+            if (LastEntity != null)
+            {
+                Console.WriteLine("Курсы валют на {0}", DateTime.Now.ToString(System.Globalization.CultureInfo.CreateSpecificCulture("fr-FR")));
+                showMinMax(LastEntity);
+            }
             Console.WriteLine("Enter time in minutes to wat until next reload:");
             int sleepTime = int.Parse(Console.ReadLine())*60000;
             while (true)
             {
-                RateEntity rateEntity = new RateEntity();
-                List<Rate> rates = DataFetch.GetRecentRate();
-                Rate minRate = null;
-                Rate maxRate = null;
+                Thread.Sleep(sleepTime);
                 GetMinMax(out minRate, out maxRate, rates);
-                if (LastEntity==null || !LastEntity.MinRate.Equals(minRate) || !LastEntity.MaxRate.Equals(maxRate))
+                AllEntities.ToList();
+                if (LastEntity != null)
+                {
+                    temp1 = LastEntity.MinRate.Equals(minRate);
+                    temp2 = LastEntity.MaxRate.Equals(maxRate);
+                }
+
+                if (!temp1 || !temp2)
                 {
                     Console.Clear();
                     if (RateRegistration(rates, rateEntity))
@@ -183,7 +199,6 @@ namespace MIG.ExchangeUI
                         Console.WriteLine("Something went wrong");
                     }
                 }
-                Thread.Sleep(sleepTime);
             }
         }
 
@@ -424,6 +439,11 @@ namespace MIG.ExchangeUI
                 }
             }
             return Units;
+        }
+
+        public RateEntity this[int i]
+        {
+            get { return AllEntities[i]; }
         }
     }
 }

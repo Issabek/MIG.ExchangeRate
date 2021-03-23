@@ -7,7 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tengri.DAL", "..\Tengri.Onl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MIG.ExchangeRateData", "MIG.ExchangeRateData\MIG.ExchangeRateData.csproj", "{81530D3B-4FEF-41F4-8417-DBA519ECE034}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MIG.ExchangeUI", "MIG.ExchangeUI\MIG.ExchangeUI.csproj", "{973D726B-27DD-4EC6-806C-3881A6E34A27}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MIG.RateDataService", "MIG.ExchangeUI\MIG.RateDataService.csproj", "{973D726B-27DD-4EC6-806C-3881A6E34A27}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MIG.Display", "MIG.Display\MIG.Display.csproj", "{47E97FAA-241D-4F9D-8857-666601E999F8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{973D726B-27DD-4EC6-806C-3881A6E34A27}.Debug|anycpu.Build.0 = Debug|Any CPU
 		{973D726B-27DD-4EC6-806C-3881A6E34A27}.Release|anycpu.ActiveCfg = Release|Any CPU
 		{973D726B-27DD-4EC6-806C-3881A6E34A27}.Release|anycpu.Build.0 = Release|Any CPU
+		{47E97FAA-241D-4F9D-8857-666601E999F8}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{47E97FAA-241D-4F9D-8857-666601E999F8}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{47E97FAA-241D-4F9D-8857-666601E999F8}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{47E97FAA-241D-4F9D-8857-666601E999F8}.Release|anycpu.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

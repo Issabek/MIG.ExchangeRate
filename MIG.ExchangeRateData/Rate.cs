@@ -47,6 +47,25 @@ namespace MIG.ExchangeRateData
         public string name_type { get; set; }
         public int id { get; set; }
         public int EntityID { get; set; }
+        public DateTime CreteTime { get; } = DateTime.Now;
 
+
+        public override bool Equals(object item)
+        {
+            var obj = item as Rate;
+            if (obj.USD_in != this.USD_in ||
+                obj.RUB_in != this.RUB_in ||
+                obj.EUR_in != this.EUR_in ||
+                obj.UAH_in != this.UAH_in ||
+                obj.USD_out != this.USD_out ||
+                obj.RUB_out != this.RUB_out ||
+                obj.EUR_out != this.EUR_out ||
+                obj.UAH_out != this.UAH_out)
+            {
+                return false;
+            }
+            return true;
+        }
     }
+
 }

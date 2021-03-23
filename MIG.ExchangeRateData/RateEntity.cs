@@ -11,7 +11,7 @@ namespace MIG.ExchangeRateData
         public DateTime CreateDate { get; } = DateTime.Now;
         public int Id { get; set; }
 
-        public RateEntity()
+        public RateEntity() :this(null,null)
         {
             //RateRecord.Keys.ToList()[0] = DateTime.Now;
         }
